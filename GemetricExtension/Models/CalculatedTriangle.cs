@@ -9,10 +9,16 @@ namespace GeometricExtension.Models
     /// </summary>
     public class CalculatedTriangle : GeometricFigure
     {
-        // TODO: !! Реализовать
+        /// <inheritdoc cref="CalculatedTriangle"/>
+        public CalculatedTriangle(double area)
+        {
+            FigureArea = area;
+        }
 
-        public Figure FigureType => throw new NotImplementedException();
+        /// <inheritdoc/>
+        public Figure FigureType => Figure.Triangle;
 
-        public double FigureSquare => throw new NotImplementedException();
+        /// <inheritdoc/>
+        public double FigureArea { get; }
     }
 }

@@ -1,7 +1,6 @@
-﻿using GeometricExtension.Interfaces;
-using GeometricExtension.Models;
+﻿using GeometricExtension.Models;
 
-namespace GeometricExtension
+namespace GeometricExtension.Interfaces
 {
     /// <summary>
     /// Представляет возможность вычисления площади круга по радиусу и треугольника по трем его сторонам
@@ -17,26 +16,26 @@ namespace GeometricExtension
         /// В текущей версии библиотеки поддерживается вычисление площади
         /// круга по его радиусу, либо треугольника по его сторонам
         /// </remarks>
-        GeometricFigure CalculateFigureSquare(params double[] figureParameters);
+        GeometricFigure CalculateFigureArea(params double[] figureParameters);
 
         /// <summary>
         /// Возвращает площадь круга по переданному радиусу этого круга
         /// </summary>
-        CalculatedCircle CalculateCircleSquare(double radius);
+        CalculatedCircle CalculateCircleArea(double radius);
 
         /// <summary>
         /// Возвращает площадь круга по переданному радиусу этого круга
         /// </summary>
-        CalculatedCircle CalculateCircleSquare(CircleForCalculation circleParameters);
+        CalculatedCircle CalculateCircleArea(CircleForCalculation circleParameters);
 
         /// <summary>
         /// Возвращает площадь треугольника по трем переданным сторонам этого треугольника
         /// </summary>
-        CalculatedTriangle CalculateTriangleSquare(double firstSide, double secondSide, double thirdSide);
+        CalculatedTriangle CalculateTriangleArea(double firstSide, double secondSide, double thirdSide);
 
         /// <summary>
         /// Возвращает площадь треугольника по трем переданным сторонам этого треугольника
         /// </summary>
-        CalculatedTriangle CalculateTriangleSquare(TriangleForCalculate triangleParameters);
+        CalculatedTriangle CalculateTriangleArea(TriangleForCalculate triangleParameters);
     }
 }
