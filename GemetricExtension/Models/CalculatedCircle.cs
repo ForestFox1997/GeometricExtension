@@ -9,10 +9,16 @@ namespace GeometricExtension.Models
     /// </summary>
     public class CalculatedCircle : GeometricFigure
     {
-        // TODO: !! Реализовать
+        /// <inheritdoc cref="CalculatedCircle"/>
+        public CalculatedCircle(double circleArea)
+        {
+            FigureArea = circleArea;
+        }
 
-        public Figure FigureType => throw new NotImplementedException();
+        /// <inheritdoc/>
+        public Figure FigureType => Figure.Circle;
 
-        public double FigureSquare => throw new NotImplementedException();
+        /// <inheritdoc/>
+        public double FigureArea { get; }
     }
 }

@@ -12,6 +12,9 @@
             Radius = radius;
         }
 
+        /// <summary>
+        /// Площадь круга
+        /// </summary>
         public double Radius { get; }
     }
 }

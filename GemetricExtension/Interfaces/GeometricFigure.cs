@@ -15,6 +15,6 @@ namespace GeometricExtension.Interfaces
         /// <summary>
         /// Площадь фигуры
         /// </summary>
-        double FigureSquare { get; }
+        double FigureArea { get; }
     }
 }

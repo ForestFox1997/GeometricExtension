@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GeometricExtension</name>
+    </assembly>
+    <members>
+        <member name="T:GeometricExtension.Enums.Figure">
+            <summary>
+            Список из фигур, с которыми умеет работать библиотека
+            </summary>
+        </member>
+        <member name="F:GeometricExtension.Enums.Figure.Circle">
+            <summary>
+            Круг
+            </summary>
+        </member>
+        <member name="F:GeometricExtension.Enums.Figure.Triangle">
+            <summary>
+            Треугольник
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.GeometricExtension">
+            <summary>
+            Представляет возможность вычисления площади круга по радиусу и треугольника по трем его сторонам
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.GeometricExtension.CalculateFigureSquare(System.Double[])">
+            <summary>
+            Вычисляет площадь геометрической фигуры по длине геометрических величин этой фигуры
+            </summary>
+            <param name="figureParameters">Одно, или три числовых значения:
+            длина радиуса круга, или длины сторон треугольника</param>
+            <remarks>
+            В текущей версии библиотеки поддерживается вычисление площади
+            круга по его радиусу, либо треугольника по его сторонам
+            </remarks>
+        </member>
+        <member name="M:GeometricExtension.GeometricExtension.CalculateCircleSquare(System.Double)">
+            <summary>
+            Возвращает площадь круга по переданному радиусу этого круга
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.GeometricExtension.CalculateCircleSquare(GeometricExtension.Models.CircleForCalculation)">
+            <summary>
+            Возвращает площадь круга по переданному радиусу этого круга
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.GeometricExtension.CalculateTriangleSquare(System.Double,System.Double,System.Double)">
+            <summary>
+            Возвращает площадь треугольника по трем переданным сторонам этого треугольника
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.GeometricExtension.CalculateTriangleSquare(GeometricExtension.Models.TriangleForCalculate)">
+            <summary>
+            Возвращает площадь треугольника по трем переданным сторонам этого треугольника
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Interfaces.GeometricFigure">
+            <summary>
+            Представляет параметры геометрической фигуры
+            </summary>
+        </member>
+        <member name="P:GeometricExtension.Interfaces.GeometricFigure.FigureType">
+            <summary>
+            Тип фигуры
+            </summary>
+        </member>
+        <member name="P:GeometricExtension.Interfaces.GeometricFigure.FigureSquare">
+            <summary>
+            Площадь фигуры
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Models.CalculatedCircle">
+            <summary>
+            Круг с рассчитанной площадью
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Models.CalculatedTriangle">
+            <summary>
+            Треугольник для расчета его площади
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Models.CircleForCalculation">
+            <summary>
+            Круг для расчета площади
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Models.CircleForCalculation.#ctor(System.Double)">
+            <inheritdoc cref="T:GeometricExtension.Models.CircleForCalculation"/>
+            <param name="radius">Радиус круга</param>
+        </member>
+        <member name="T:GeometricExtension.Models.TriangleForCalculate">
+            <summary>
+            Треугольник с рассчитанной площадью
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Models.TriangleForCalculate.#ctor(System.Double,System.Double,System.Double)">
+            <inheritdoc cref="T:GeometricExtension.Models.TriangleForCalculate"/>
+            <param name="firstSide">Первая сторона</param>
+            <param name="secondSide">Вторая сторона</param>
+            <param name="thirdSide">Третья сторона</param>
+        </member>
+    </members>
+</doc>

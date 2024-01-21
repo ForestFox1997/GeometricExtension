@@ -16,10 +16,19 @@
             ThirdSide = thirdSide;
         }
 
+        /// <summary>
+        /// Длина первой стороны
+        /// </summary>
         public double FirstSide { get; set; }
 
+        /// <summary>
+        /// Длина второй стороны
+        /// </summary>
         public double SecondSide { get; set; }
 
+        /// <summary>
+        /// Длина третьей стороны
+        /// </summary>
         public double ThirdSide { get; set; }
     }
 }
