@@ -69,5 +69,27 @@ namespace Tests
 
             Assert.AreEqual(calculatedResult, alternateCalculatedResult);
         }
+
+        /// <summary>
+        /// Проверяет корректность метода, проверяющего треугольник на прямоугольность
+        /// </summary>
+        [TestMethod]
+        public void CheckCorrectnessOfMethodSquarenessCheck()
+        {
+            CalculationService service = new();
+
+            var rightTriangleSides = (a: 6, b: 10, c: 8);
+            var nonRightTriangleSides = (a: 6, b: 10, c: 10);
+
+            // Выполнение private метода у service
+            MethodInfo? method = service.GetType().GetTypeInfo().GetMethod(
+                "CheckSquarenessOfTriangle", BindingFlags.NonPublic | BindingFlags.Instance);
+            var resultRightTriangleCheck = (bool)method!.Invoke(service,
+                new object[] { rightTriangleSides.a, rightTriangleSides.b, rightTriangleSides.c })!;
+            var resultNonRightTriangleCheck = (bool)method!.Invoke(service,
+                new object[] { nonRightTriangleSides.a, nonRightTriangleSides.b, nonRightTriangleSides.c })!;
+
+            Assert.IsTrue(resultRightTriangleCheck && !resultNonRightTriangleCheck);
+        }
     }
 }

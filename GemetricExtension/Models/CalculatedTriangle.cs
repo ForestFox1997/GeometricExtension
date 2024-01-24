@@ -1,6 +1,5 @@
 ﻿using GeometricExtension.Enums;
 using GeometricExtension.Interfaces;
-using System;
 
 namespace GeometricExtension.Models
 {
@@ -10,9 +9,10 @@ namespace GeometricExtension.Models
     public class CalculatedTriangle : GeometricFigure
     {
         /// <inheritdoc cref="CalculatedTriangle"/>
-        public CalculatedTriangle(double area)
+        public CalculatedTriangle(double area, bool isRightTriangle)
         {
             FigureArea = area;
+            IsRightTriangle = isRightTriangle;
         }
 
         /// <inheritdoc/>
@@ -20,5 +20,10 @@ namespace GeometricExtension.Models
 
         /// <inheritdoc/>
         public double FigureArea { get; }
+
+        /// <summary>
+        /// Является прямоугольным
+        /// </summary>
+        public bool IsRightTriangle { get; }
     }
 }

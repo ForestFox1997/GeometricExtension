@@ -5,7 +5,7 @@ namespace GeometricExtension.Interfaces
     /// <summary>
     /// Представляет возможность вычисления площади круга по радиусу и треугольника по трем его сторонам
     /// </summary>
-    public interface GeometricExtension
+    public interface IGeometricExtension
     {
         /// <summary>
         /// Вычисляет площадь геометрической фигуры по длине геометрических величин этой фигуры

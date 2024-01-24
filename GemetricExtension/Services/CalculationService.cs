@@ -7,7 +7,7 @@ namespace GeometricExtension.Services
     /// <summary>
     /// Производит расчет площади геометрических фигур
     /// </summary>
-    public class CalculationService : Interfaces.GeometricExtension
+    public class CalculationService : IGeometricExtension
     {
         /// <inheritdoc/>
         public GeometricFigure CalculateFigureArea(params double[] figureParameters)
@@ -20,7 +20,9 @@ namespace GeometricExtension.Services
                 case 3:
                     double triangleArea = CalculateAreaOfTriangle(
                         figureParameters[0], figureParameters[1], figureParameters[2]);
-                    return new CalculatedTriangle(triangleArea);
+                    bool isRectangular = CheckSquarenessOfTriangle(
+                        figureParameters[0], figureParameters[1], figureParameters[2]);
+                    return new CalculatedTriangle(triangleArea, isRectangular);
                 default:
                     throw new ArgumentException(
                         "Неверное количество аргументов. Допустимо 1, или 3 аргумента в зависимости от типа фигуры");
@@ -45,7 +47,8 @@ namespace GeometricExtension.Services
         public CalculatedTriangle CalculateTriangleArea(double firstSide, double secondSide, double thirdSide)
         {
             double area = CalculateAreaOfTriangle(firstSide, secondSide, thirdSide);
-            return new CalculatedTriangle(area);
+            bool isRectangular = CheckSquarenessOfTriangle(firstSide, secondSide, thirdSide);
+            return new CalculatedTriangle(area, isRectangular);
         }
 
         /// <inheritdoc/>
@@ -53,7 +56,9 @@ namespace GeometricExtension.Services
         {
             double area = CalculateAreaOfTriangle(
                 triangleParameters.FirstSide, triangleParameters.SecondSide, triangleParameters.ThirdSide);
-            return new CalculatedTriangle(area);
+            bool isRectangular = CheckSquarenessOfTriangle(
+                triangleParameters.FirstSide, triangleParameters.SecondSide, triangleParameters.ThirdSide);
+            return new CalculatedTriangle(area, isRectangular);
         }
 
         /// <summary>
@@ -71,6 +76,16 @@ namespace GeometricExtension.Services
         {
             double perimeter = (firstSide + secondSide + thirdSide) / 2;
             return Math.Sqrt(perimeter * (perimeter - firstSide) * (perimeter - secondSide) * (perimeter - thirdSide));
+        }
+
+        /// <summary>
+        /// Возвращает значение, показывающее, что треугольник является прямоугольным по длине его сторон
+        /// </summary>
+        private bool CheckSquarenessOfTriangle(double firstSide, double secondSide, double thirdSide)
+        {
+            return Math.Pow(firstSide, 2) == Math.Pow(secondSide, 2) + Math.Pow(thirdSide, 2)
+                || Math.Pow(secondSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(thirdSide, 2)
+                || Math.Pow(thirdSide, 2) == Math.Pow(firstSide, 2) + Math.Pow(secondSide, 2);
         }
     }
 }
