@@ -1,25 +1,25 @@
-using System.Reflection;
+п»їusing System.Reflection;
 using static System.Math;
 using GeometricExtension.Services;
 
 namespace Tests
 {
     /// <summary>
-    /// Тестирует функциональность <see cref="CalculationService"/>
+    /// РўРµСЃС‚РёСЂСѓРµС‚ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕСЃС‚СЊ <see cref="CalculationService"/>
     /// </summary>
     [TestClass]
     public class CalculationServiceTest
     {
         /// <summary>
-        /// Проверяет <see cref="CalculationService.CalculateFigureArea"/>, принимающий произвольное кол-во
-        /// аргументов на выброс исключения, если кол-во переданных аргументов оказалось некорректно
+        /// РџСЂРѕРІРµСЂСЏРµС‚ <see cref="CalculationService.CalculateFigureArea"/>, РїСЂРёРЅРёРјР°СЋС‰РёР№ РїСЂРѕРёР·РІРѕР»СЊРЅРѕРµ РєРѕР»-РІРѕ
+        /// Р°СЂРіСѓРјРµРЅС‚РѕРІ РЅР° РІС‹Р±СЂРѕСЃ РёСЃРєР»СЋС‡РµРЅРёСЏ, РµСЃР»Рё РєРѕР»-РІРѕ РїРµСЂРµРґР°РЅРЅС‹С… Р°СЂРіСѓРјРµРЅС‚РѕРІ РѕРєР°Р·Р°Р»РѕСЃСЊ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕ
         /// </summary>
         [TestMethod]
         public void CheckInterruptWhenIncorrectArgumentsNumber()
         {
             CalculationService service = new();
 
-            // Ожидается выбрасывание исключения, если не было передано 1, или 3 аргумента
+            // РћР¶РёРґР°РµС‚СЃСЏ РІС‹Р±СЂР°СЃС‹РІР°РЅРёРµ РёСЃРєР»СЋС‡РµРЅРёСЏ, РµСЃР»Рё РЅРµ Р±С‹Р»Рѕ РїРµСЂРµРґР°РЅРѕ 1, РёР»Рё 3 Р°СЂРіСѓРјРµРЅС‚Р°
             Assert.ThrowsException<ArgumentException>(() => service.CalculateFigureArea());
             Assert.ThrowsException<ArgumentException>(() => service.CalculateFigureArea(5, 5));
             Assert.ThrowsException<ArgumentException>(() => service.CalculateFigureArea(5, 5, 5, 5));
@@ -27,7 +27,7 @@ namespace Tests
         }
 
         /// <summary>
-        /// Проверяет корректность метода, выполняющего вычисление площади круга по радиусу
+        /// РџСЂРѕРІРµСЂСЏРµС‚ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ РјРµС‚РѕРґР°, РІС‹РїРѕР»РЅСЏСЋС‰РµРіРѕ РІС‹С‡РёСЃР»РµРЅРёРµ РїР»РѕС‰Р°РґРё РєСЂСѓРіР° РїРѕ СЂР°РґРёСѓСЃСѓ
         /// </summary>
         [TestMethod]
         public void CheckCorrectnessOfCircleAreaCalculation()
@@ -36,7 +36,7 @@ namespace Tests
 
             double originalValue = new Random().NextDouble();
 
-            // Выполнение private метода у service
+            // Р’С‹РїРѕР»РЅРµРЅРёРµ private РјРµС‚РѕРґР° Сѓ service
             MethodInfo? method = service.GetType().GetTypeInfo().GetMethod(
                 "CalculateAreaOfCircle", BindingFlags.NonPublic | BindingFlags.Instance);
             var calculatedResult = (double)method!.Invoke(service, new object[] { originalValue })!;
@@ -47,7 +47,7 @@ namespace Tests
         }
 
         /// <summary>
-        /// Проверяет корректность метода, выполняющего вычисление площади треугольника по длине сторон
+        /// РџСЂРѕРІРµСЂСЏРµС‚ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ РјРµС‚РѕРґР°, РІС‹РїРѕР»РЅСЏСЋС‰РµРіРѕ РІС‹С‡РёСЃР»РµРЅРёРµ РїР»РѕС‰Р°РґРё С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РїРѕ РґР»РёРЅРµ СЃС‚РѕСЂРѕРЅ
         /// </summary>
         [TestMethod]
         public void CheckCorrectnessOfTriangleAreaCalculation()
@@ -57,13 +57,13 @@ namespace Tests
             Random random = new();
             double firstSide = random.NextDouble(), secondSide = random.NextDouble(), thirdSide = random.NextDouble();
 
-            // Выполнение private метода у service
+            // Р’С‹РїРѕР»РЅРµРЅРёРµ private РјРµС‚РѕРґР° Сѓ service
             MethodInfo? method = service.GetType().GetTypeInfo().GetMethod(
                 "CalculateAreaOfTriangle", BindingFlags.NonPublic | BindingFlags.Instance);
             var calculatedResult = (double)method!.Invoke(service,
                 new object[] { firstSide, secondSide, thirdSide })!;
 
-            // В качестве альтернативного вычисления используется альтернативная Формула Герона
+            // Р’ РєР°С‡РµСЃС‚РІРµ Р°Р»СЊС‚РµСЂРЅР°С‚РёРІРЅРѕРіРѕ РІС‹С‡РёСЃР»РµРЅРёСЏ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ Р°Р»СЊС‚РµСЂРЅР°С‚РёРІРЅР°СЏ Р¤РѕСЂРјСѓР»Р° Р“РµСЂРѕРЅР°
             var alternateCalculatedResult = 0.25 * Sqrt(Pow(Pow(firstSide, 2) + Pow(secondSide, 2) + Pow(thirdSide, 2), 2)
                 - (2 * (Pow(firstSide, 4) + Pow(secondSide, 4) + Pow(thirdSide, 4))));
 
@@ -71,7 +71,7 @@ namespace Tests
         }
 
         /// <summary>
-        /// Проверяет корректность метода, проверяющего треугольник на прямоугольность
+        /// РџСЂРѕРІРµСЂСЏРµС‚ РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ РјРµС‚РѕРґР°, РїСЂРѕРІРµСЂСЏСЋС‰РµРіРѕ С‚СЂРµСѓРіРѕР»СЊРЅРёРє РЅР° РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРѕСЃС‚СЊ
         /// </summary>
         [TestMethod]
         public void CheckCorrectnessOfMethodSquarenessCheck()
@@ -81,7 +81,7 @@ namespace Tests
             var rightTriangleSides = (a: 6, b: 10, c: 8);
             var nonRightTriangleSides = (a: 6, b: 10, c: 10);
 
-            // Выполнение private метода у service
+            // Р’С‹РїРѕР»РЅРµРЅРёРµ private РјРµС‚РѕРґР° Сѓ service
             MethodInfo? method = service.GetType().GetTypeInfo().GetMethod(
                 "CheckSquarenessOfTriangle", BindingFlags.NonPublic | BindingFlags.Instance);
             var resultRightTriangleCheck = (bool)method!.Invoke(service,
