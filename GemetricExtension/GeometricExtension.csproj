@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>doc.xml</DocumentationFile>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>GeometricExtension</Title>
+  </PropertyGroup>
+
+</Project>

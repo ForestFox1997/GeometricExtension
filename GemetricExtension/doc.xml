@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GeometricExtension</name>
+    </assembly>
+    <members>
+        <member name="T:GeometricExtension.Enums.Figure">
+            <summary>
+            Список из фигур, с которыми умеет работать библиотека
+            </summary>
+        </member>
+        <member name="F:GeometricExtension.Enums.Figure.Circle">
+            <summary>
+            Круг
+            </summary>
+        </member>
+        <member name="F:GeometricExtension.Enums.Figure.Triangle">
+            <summary>
+            Треугольник
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Interfaces.GeometricFigure">
+            <summary>
+            Представляет параметры геометрической фигуры
+            </summary>
+        </member>
+        <member name="P:GeometricExtension.Interfaces.GeometricFigure.FigureType">
+            <summary>
+            Тип фигуры
+            </summary>
+        </member>
+        <member name="P:GeometricExtension.Interfaces.GeometricFigure.FigureArea">
+            <summary>
+            Площадь фигуры
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Interfaces.IGeometricExtension">
+            <summary>
+            Представляет возможность вычисления площади круга по радиусу и треугольника по трем его сторонам
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Interfaces.IGeometricExtension.CalculateFigureArea(System.Double[])">
+            <summary>
+            Вычисляет площадь геометрической фигуры по длине геометрических величин этой фигуры
+            </summary>
+            <param name="figureParameters">Одно, или три числовых значения:
+            длина радиуса круга, или длины сторон треугольника</param>
+            <remarks>
+            В текущей версии библиотеки поддерживается вычисление площади
+            круга по его радиусу, либо треугольника по его сторонам
+            </remarks>
+        </member>
+        <member name="M:GeometricExtension.Interfaces.IGeometricExtension.CalculateCircleArea(System.Double)">
+            <summary>
+            Возвращает площадь круга по переданному радиусу этого круга
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Interfaces.IGeometricExtension.CalculateCircleArea(GeometricExtension.Models.CircleForCalculation)">
+            <summary>
+            Возвращает площадь круга по переданному радиусу этого круга
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Interfaces.IGeometricExtension.CalculateTriangleArea(System.Double,System.Double,System.Double)">
+            <summary>
+            Возвращает площадь треугольника по трем переданным сторонам этого треугольника
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Interfaces.IGeometricExtension.CalculateTriangleArea(GeometricExtension.Models.TriangleForCalculate)">
+            <summary>
+            Возвращает площадь треугольника по трем переданным сторонам этого треугольника
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Models.CalculatedCircle">
+            <summary>
+            Круг с рассчитанной площадью
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Models.CalculatedCircle.#ctor(System.Double)">
+            <inheritdoc cref="T:GeometricExtension.Models.CalculatedCircle"/>
+        </member>
+        <member name="P:GeometricExtension.Models.CalculatedCircle.FigureType">
+            <inheritdoc/>
+        </member>
+        <member name="P:GeometricExtension.Models.CalculatedCircle.FigureArea">
+            <inheritdoc/>
+        </member>
+        <member name="T:GeometricExtension.Models.CalculatedTriangle">
+            <summary>
+            Треугольник для расчета его площади
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Models.CalculatedTriangle.#ctor(System.Double,System.Boolean)">
+            <inheritdoc cref="T:GeometricExtension.Models.CalculatedTriangle"/>
+        </member>
+        <member name="P:GeometricExtension.Models.CalculatedTriangle.FigureType">
+            <inheritdoc/>
+        </member>
+        <member name="P:GeometricExtension.Models.CalculatedTriangle.FigureArea">
+            <inheritdoc/>
+        </member>
+        <member name="P:GeometricExtension.Models.CalculatedTriangle.IsRightTriangle">
+            <summary>
+            Является прямоугольным
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Models.CircleForCalculation">
+            <summary>
+            Круг для расчета площади
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Models.CircleForCalculation.#ctor(System.Double)">
+            <inheritdoc cref="T:GeometricExtension.Models.CircleForCalculation"/>
+            <param name="radius">Радиус круга</param>
+        </member>
+        <member name="P:GeometricExtension.Models.CircleForCalculation.Radius">
+            <summary>
+            Площадь круга
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Models.TriangleForCalculate">
+            <summary>
+            Треугольник с рассчитанной площадью
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Models.TriangleForCalculate.#ctor(System.Double,System.Double,System.Double)">
+            <inheritdoc cref="T:GeometricExtension.Models.TriangleForCalculate"/>
+            <param name="firstSide">Первая сторона</param>
+            <param name="secondSide">Вторая сторона</param>
+            <param name="thirdSide">Третья сторона</param>
+        </member>
+        <member name="P:GeometricExtension.Models.TriangleForCalculate.FirstSide">
+            <summary>
+            Длина первой стороны
+            </summary>
+        </member>
+        <member name="P:GeometricExtension.Models.TriangleForCalculate.SecondSide">
+            <summary>
+            Длина второй стороны
+            </summary>
+        </member>
+        <member name="P:GeometricExtension.Models.TriangleForCalculate.ThirdSide">
+            <summary>
+            Длина третьей стороны
+            </summary>
+        </member>
+        <member name="T:GeometricExtension.Services.CalculationService">
+            <summary>
+            Производит расчет площади геометрических фигур
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Services.CalculationService.CalculateFigureArea(System.Double[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:GeometricExtension.Services.CalculationService.CalculateCircleArea(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GeometricExtension.Services.CalculationService.CalculateCircleArea(GeometricExtension.Models.CircleForCalculation)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GeometricExtension.Services.CalculationService.CalculateTriangleArea(System.Double,System.Double,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GeometricExtension.Services.CalculationService.CalculateTriangleArea(GeometricExtension.Models.TriangleForCalculate)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GeometricExtension.Services.CalculationService.CalculateAreaOfCircle(System.Double)">
+            <summary>
+            Произвести вычисление площади круга, передав его радиус
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Services.CalculationService.CalculateAreaOfTriangle(System.Double,System.Double,System.Double)">
+            <summary>
+            Произвести вычисление площади треугольника, передав длины его сторон
+            </summary>
+        </member>
+        <member name="M:GeometricExtension.Services.CalculationService.CheckSquarenessOfTriangle(System.Double,System.Double,System.Double)">
+            <summary>
+            Возвращает значение, показывающее, что треугольник является прямоугольным
+            </summary>
+        </member>
+    </members>
+</doc>
