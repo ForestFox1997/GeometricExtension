@@ -61,7 +61,8 @@ while (!Console.KeyAvailable)
         }
 
         CalculatedTriangle triangle = _geometricService.CalculateTriangleArea(numbers[0], numbers[1], numbers[2]);
-        Console.WriteLine("Площадь круга составляет: {0}", triangle.FigureArea);
+        Console.WriteLine("Площадь треугольника составляет: {0}, треугольник {1}",
+            triangle.FigureArea, triangle.IsRightTriangle ? "прямоугольный" : "непрямоугольный");
     }
     // Free figure choice
     else if (keyInfo.Key == ConsoleKey.Enter)
@@ -84,7 +85,16 @@ while (!Console.KeyAvailable)
         try
         {
             GeometricFigure figure = _geometricService.CalculateFigureArea(numbers);
-            Console.WriteLine("Площадь фигуры {0} составляет {1}", figure.FigureType, figure.FigureArea);
+            string additionalInformation = "";
+            if (figure is CalculatedTriangle calculatedTriangle)
+            {
+                additionalInformation = calculatedTriangle.IsRightTriangle
+                    ? "Треугольник прямоугольный"
+                    : "Треугольник непрямоугольный";
+            }
+
+            Console.WriteLine("Площадь фигуры {0} составляет {1}; {2}",
+                figure.FigureType, figure.FigureArea, additionalInformation);
         }
         catch
         {
